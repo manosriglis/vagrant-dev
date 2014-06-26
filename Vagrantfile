@@ -1,7 +1,5 @@
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
-
-#https://gist.github.com/dbu/4064837
+#!/usr/bin/env ruby
+#^syntax detection
 
 Vagrant.configure("2") do |config|
   config.vm.box = "centos-6.4"
@@ -25,43 +23,37 @@ Vagrant.configure("2") do |config|
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "cookbooks"
 
-    #chef.add_recipe "simple_iptables"
-    #chef.add_recipe "build-essential"
-    #chef.add_recipe "mysql"
-    #chef.add_recipe "mysql::server"
-    #chef.add_recipe "git"
-    #chef.add_recipe "rubygems"
-    #chef.add_recipe "php"
-    #chef.add_recipe "php::module_mysql"
-    #chef.add_recipe "php::module_apc"
-    #chef.add_recipe "php::module_curl"
-    #chef.add_recipe "php::module_gd"
-    #chef.add_recipe "apache2"
-    #chef.add_recipe "apache2::mod_php5"
-    #chef.add_recipe "apache2::mod_alias"
-    #chef.add_recipe "apache2::mod_headers"
-    #chef.add_recipe "apache2::mod_include"
-    #chef.add_recipe "apache2::mod_proxy"
-    #chef.add_recipe "apache2::mod_rewrite"
-    #chef.add_recipe "apache2::mod_ssl"
-    #chef.add_recipe "apache2::mod_setenvif"
+    chef.add_recipe "simple_iptables"
+    chef.add_recipe "build-essential"
+    chef.add_recipe "mysql"
+    chef.add_recipe "mysql::server"
+    chef.add_recipe "git"
+    chef.add_recipe "rubygems"
+    chef.add_recipe "php"
+    chef.add_recipe "php::module_mysql"
+    chef.add_recipe "php::module_apc"
+    chef.add_recipe "php::module_curl"
+    chef.add_recipe "php::module_gd"
+    chef.add_recipe "apache2"
+    chef.add_recipe "apache2::mod_php5"
+    chef.add_recipe "apache2::mod_alias"
+    chef.add_recipe "apache2::mod_headers"
+    chef.add_recipe "apache2::mod_include"
+    chef.add_recipe "apache2::mod_proxy"
+    chef.add_recipe "apache2::mod_rewrite"
+    chef.add_recipe "apache2::mod_ssl"
+    chef.add_recipe "apache2::mod_setenvif"
     chef.add_recipe "webapp"
-    #chef.add_recipe "composer"
-    #chef.add_recipe "drush"
-    #chef.add_recipe "drush::install_console_table"
-    #chef.add_recipe "memcached"
-    #chef.add_recipe "java"
-    #chef.add_recipe "maven"
-    #chef.add_recipe "nodejs"
-#    chef.add_recipe "mongodb::10gen_repo"
-#    chef.add_recipe "mongodb::default"
-
+    chef.add_recipe "subversion"
+    chef.add_recipe "composer"
+    chef.add_recipe "drush"
+    chef.add_recipe "drush::install_console_table"
+    chef.add_recipe "memcached"
+    chef.add_recipe "java"
+    chef.add_recipe "maven"
+    chef.add_recipe "nodejs"
 
     chef.json = {
-#      "mongodb" => {
-#        "package_name" => "mongodb-10gen-server",
-#        "package_version" => "2.4.0"
-#      },
       :maven => {
         :setup_bin => true
       },

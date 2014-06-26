@@ -3,9 +3,6 @@
 
 site 'http://community.opscode.com/api/v1'
 
-# cookbook 'chef-client'
-cookbook 'webapp',
-	:path => "dev-cookbooks/webapp"
 cookbook 'build-essential'
 cookbook 'apt'
 cookbook 'apache2'
@@ -22,5 +19,10 @@ cookbook 'maven'
 cookbook 'mongodb'
 cookbook 'nodejs'
 cookbook 'simple_iptables'
+cookbook 'subversion'
 cookbook 'drush',
 	:github => 'msonnabaum/chef-drush'
+cookbook 'icu',
+	:github => 'Svatbata/chef-icu'
+cookbook 'webapp',
+	:github => "manosriglis/web-app"
